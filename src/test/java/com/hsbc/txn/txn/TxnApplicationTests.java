@@ -19,7 +19,7 @@ class TxnApplicationTests {
 	public void testGetAllTxns() throws Exception {
 		// Arrange
 		List<TxnVo> allTxn =txnService.getAllTxns();
-
+		System.out.println(allTxn);
 	}
 
 	@Test
