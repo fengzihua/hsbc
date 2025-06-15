@@ -9,6 +9,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +19,7 @@ import java.util.List;
 @Validated
 @RestController
 @Tag(name = "交易管理api", description = "提供交易的创建、修改、查询和删除功能")
-@RequestMapping("/api/txn")
+@RequestMapping("/txn")
 public class TxnController {
     @Autowired
     private TxnService txnService;
@@ -45,15 +46,15 @@ public class TxnController {
     }
 
     @Operation(summary = "查询全部交易")
-    @GetMapping(value = "/all")
-    public ResponseEntity<ApiBaseResponse<List<TxnVo>>> getAllTransactions() {
+    @GetMapping(value = "/all" , produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<ApiBaseResponse<List<TxnVo>>> getAllTxns() {
         List<TxnVo> allData = txnService.getAllTxns();
         return new ResponseEntity<>(ApiBaseResponse.success(allData), HttpStatus.OK);
     }
 
     @Operation(summary = "分页查询交易")
     @GetMapping(value = "/page")
-    public ResponseEntity<ApiBaseResponse<PageVo<TxnVo>>> getTransactionsByPage(
+    public ResponseEntity<ApiBaseResponse<PageVo<TxnVo>>> getTxnByPage(
             @RequestParam(value = "page", defaultValue = "1") long page,
             @RequestParam(value = "size", defaultValue = "10") long size,
             @RequestParam(value = "isAsc", defaultValue = "false") boolean isAsc){

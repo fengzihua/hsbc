@@ -34,4 +34,52 @@ public class CreateTxn {
 
     @Schema(description = "目标用户ID")
     private Long targetUid;
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public String getTid() {
+        return tid;
+    }
+
+    public void setTid(String tid) {
+        this.tid = tid;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Double amount) {
+        this.amount = amount;
+    }
+
+    public Long getTxnTime() {
+        return txnTime;
+    }
+
+    public void setTxnTime(Long txnTime) {
+        this.txnTime = txnTime;
+    }
+
+    public Long getTargetUid() {
+        return targetUid;
+    }
+
+    public void setTargetUid(Long targetUid) {
+        this.targetUid = targetUid;
+    }
 }

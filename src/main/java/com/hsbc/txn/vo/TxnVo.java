@@ -17,7 +17,7 @@ public class TxnVo {
     @NotNull
     private Long userId;
 
-    @Schema(description = "transaction ID")
+    @Schema(description = "txn ID")
     @NotNull
     private String tid;
 
@@ -29,9 +29,6 @@ public class TxnVo {
     @NotNull
     private Double amount;
 
-    @Schema(description = "货币类型")
-    @NotNull
-    private String currency;
 
     @Schema(description = "交易时间，unix毫秒时间戳", example = "1743305743000")
     @NotNull
@@ -40,8 +37,6 @@ public class TxnVo {
     @Schema(description = "目标用户ID")
     private Long targetUid;
 
-    @Schema(description = "链接键")
-    private String linkKey;
 
     public TxnVo(Txn txn) {
         this.id = txn.getId();
