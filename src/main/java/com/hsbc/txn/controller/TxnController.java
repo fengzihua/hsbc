@@ -46,7 +46,7 @@ public class TxnController {
     }
 
     @Operation(summary = "查询全部交易")
-    @GetMapping(value = "/all" , produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/all")
     public ResponseEntity<ApiBaseResponse<List<TxnVo>>> getAllTxns() {
         List<TxnVo> allData = txnService.getAllTxns();
         return new ResponseEntity<>(ApiBaseResponse.success(allData), HttpStatus.OK);
